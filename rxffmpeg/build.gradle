@@ -46,6 +46,7 @@ android {
             withJavadocJar()
         }
     }
+
 }
 
 dependencies {
@@ -56,30 +57,17 @@ dependencies {
     api 'io.reactivex.rxjava2:rxjava:2.2.4'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release // 发布 release 变体
-                groupId = 'com.github.zdk119746' // 通常为 'com.github.你的GitHub用户名'
-                artifactId = 'RxFFmpeg' // 通常为项目名称或模块名
-                version = android.defaultConfig.versionName
+// 添加发布任务
+publishing {
+    publications {
+        release(MavenPublication) {
+            // 直接从components获取release组件
+            afterEvaluate {
+                from components.release
+                groupId = 'com.github.zdk119746'
+                artifactId = 'RxFFmpeg'
+                version = versionNameValue
             }
         }
     }
 }
-
-//// 添加发布任务
-//publishing {
-//    publications {
-//        release(MavenPublication) {
-//            groupId = 'com.github.zdk119746'
-//            artifactId = 'RxFFmpeg'
-//            version = android.defaultConfig.versionName
-//
-//            afterEvaluate {
-//                from components.release
-//            }
-//        }
-//    }
-//}
