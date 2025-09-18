@@ -26,6 +26,7 @@
         <activity
             android:name="io.microshow.rxffmpeg.app.activity.LaunchActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
@@ -38,6 +39,7 @@
         <activity
             android:name="io.microshow.rxffmpeg.app.activity.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
 

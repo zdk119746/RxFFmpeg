@@ -42,7 +42,7 @@ public class LaunchActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Utils.fixInputMethodManagerLeak(this);
+//        Utils.fixInputMethodManagerLeak(this);
         mCompositeDisposable.clear();
     }
 

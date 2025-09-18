@@ -4,6 +4,8 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 
+import java.io.IOException;
+
 /**
  * 音视频工具类
  * Created by Super on 2019/4/5.
@@ -95,19 +97,23 @@ public class AudioVideoUtils {
     /**
      * 获取视频宽
      *
-     * @param videoPath
-     * @return
+     * @param videoPath 视频路径
+     * @return 视频宽
      */
     public static int getVideoWidth(String videoPath) {
-        MediaMetadataRetriever retr = new MediaMetadataRetriever();
-        retr.setDataSource(videoPath);
-        String width = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH); // 视频宽度
-        String height = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT); // 视频高度
-        String rotation = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
+        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        mmr.setDataSource(videoPath);
+        String width = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH); // 视频宽度
+        String height = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT); // 视频高度
+        String rotation = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
         if ("90".equals(rotation) || "270".equals(rotation)) {//当视频是竖屏的时候 orientation = 90，横屏 orientation = 0 ，正确转换宽高
             width = height;
         }
-        retr.release();
+        try {
+            mmr.release();
+        } catch (IOException ignored) {
+
+        }
         return Integer.parseInt(width);
     }
 
@@ -118,15 +124,19 @@ public class AudioVideoUtils {
      * @return
      */
     public static int getVideoHeight(String videoPath) {
-        MediaMetadataRetriever retr = new MediaMetadataRetriever();
-        retr.setDataSource(videoPath);
-        String width = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH); // 视频宽度
-        String height = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT); // 视频高度
-        String rotation = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
+        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        mmr.setDataSource(videoPath);
+        String width = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH); // 视频宽度
+        String height = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT); // 视频高度
+        String rotation = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
         if ("90".equals(rotation) || "270".equals(rotation)) {//当视频是竖屏的时候 orientation = 90，横屏 orientation = 0 ，正确转换宽高
             height = width;
         }
-        retr.release();
+        try {
+            mmr.release();
+        } catch (IOException ignored) {
+
+        }
         return Integer.parseInt(height);
     }
 
@@ -137,10 +147,14 @@ public class AudioVideoUtils {
      * @return
      */
     public static int getVideoRotation(String videoPath) {
-        MediaMetadataRetriever retr = new MediaMetadataRetriever();
-        retr.setDataSource(videoPath);
-        String rotation = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION); // 视频旋转方向
-        retr.release();
+        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        mmr.setDataSource(videoPath);
+        String rotation = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION); // 视频旋转方向
+        try {
+            mmr.release();
+        } catch (IOException ignored) {
+
+        }
         return Integer.parseInt(rotation);
     }
 
@@ -151,10 +165,14 @@ public class AudioVideoUtils {
      * @return
      */
     public static int getVideoDuration(String videoPath) {
-        MediaMetadataRetriever retr = new MediaMetadataRetriever();
-        retr.setDataSource(videoPath);
-        String rotation = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION); // 视频时长 毫秒
-        retr.release();
+        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        mmr.setDataSource(videoPath);
+        String rotation = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION); // 视频时长 毫秒
+        try {
+            mmr.release();
+        } catch (IOException ignored) {
+
+        }
         return Integer.parseInt(rotation) / 1000;//转为秒
     }
 

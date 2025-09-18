@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.baidu.mobstat.StatService;
+//import com.baidu.mobstat.StatService;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initTabHost();
 
         //baidu mtj-sdk 崩溃日志
-        StatService.start(this);
+//        StatService.start(this);
     }
 
     private void initTabHost() {
@@ -121,6 +121,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             myTabhost.clearAllTabs();
             myTabhost = null;
         }
-        Utils.fixInputMethodManagerLeak(this);
+//        Utils.fixInputMethodManagerLeak(this);
     }
 }

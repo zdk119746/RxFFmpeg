@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion compileSdkValue
+    namespace "io.microshow.rxffmpeg.app"
     defaultConfig {
         applicationId "io.microshow.rxffmpeg.app"
         minSdkVersion minSdkValue
@@ -58,8 +59,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     sourceSets {
@@ -72,19 +73,19 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
 
     //动态权限
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     //baidu mtj-sdk
-    implementation 'com.baidu.mobstat:mtj-sdk-circle:3.9.3.9'
+//    implementation 'com.baidu.mobstat:mtj-sdk-circle:3.9.3.9'
 
     //友盟统计
-    implementation  'com.umeng.umsdk:common:9.4.0'// 必选
-    implementation  'com.umeng.umsdk:asms:1.2.3'// 必选
-    implementation 'com.umeng.umsdk:apm:1.4.0' // 错误分析升级为独立SDK，看crash数据请一定集成，可选
+    implementation  'com.umeng.umsdk:common:9.8.8'// 必选
+    implementation  'com.umeng.umsdk:asms:1.8.7.2'// 必选
+//    implementation 'com.umeng.umsdk:apm:2.0.6' // 错误分析升级为独立SDK，看crash数据请一定集成，可选
 
     //lottie
     implementation 'com.airbnb.android:lottie:3.4.0'
@@ -95,10 +96,10 @@ dependencies {
     implementation 'com.github.Justson:Downloader:v4.1.9-androidx' // (可选)
 
     //leakcanary 内存泄露检测
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     // Optional, if you use support library fragments:
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
 
     implementation project(path: ':rxffmpeg')
 

@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import com.baidu.mobstat.StatService;
+//import com.baidu.mobstat.StatService;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.lang.ref.WeakReference;
@@ -95,7 +95,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> implements V
         //统计结束时间
         endTime = System.nanoTime();
         Utils.showDialog(getActivity(), message, Utils.convertUsToTime((endTime - startTime) / 1000, false));
-        StatService.onEventDuration(getActivity(), "RunFFmpegCommand", binding.editText.getText().toString(), (endTime - startTime) / (1000 * 1000));
+//        StatService.onEventDuration(getActivity(), "RunFFmpegCommand", binding.editText.getText().toString(), (endTime - startTime) / (1000 * 1000));
     }
 
     @Override

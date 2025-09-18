@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.baidu.mobstat.StatService;
+//import com.baidu.mobstat.StatService;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -59,13 +59,13 @@ public abstract class BaseFragment<V extends ViewDataBinding> extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        StatService.onPageStart(getActivity(), getFragmentName());
+//        StatService.onPageStart(getActivity(), getFragmentName());
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        StatService.onPageEnd(getActivity(), getFragmentName());
+//        StatService.onPageEnd(getActivity(), getFragmentName());
     }
 
     @Override
@@ -74,7 +74,7 @@ public abstract class BaseFragment<V extends ViewDataBinding> extends Fragment {
         if (binding != null) {
             binding.unbind();
         }
-        Utils.fixInputMethodManagerLeak(getContext());
+//        Utils.fixInputMethodManagerLeak(getContext());
     }
 
 }
