@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion compileSdkValue
+    compileSdkVersion compileSdkValue as int
     namespace 'io.microshow.rxffmpeg'
     defaultConfig {
-        minSdkVersion minSdkValue
-        targetSdkVersion targetSdkValue
-        versionCode versionCodeValue
+        minSdkVersion minSdkValue as int
+        targetSdkVersion targetSdkValue as int
+        versionCode versionCodeValue as int
         versionName versionNameValue
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //        externalNativeBuild {
